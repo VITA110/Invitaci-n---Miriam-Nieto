@@ -1,0 +1,488 @@
+/* Variables para colores y estilos */
+:root {
+    --primary-color: #6a4c93;
+    --secondary-color: #c5b3e6;
+    --accent-color: #e87db9;
+    --text-color: #333333;
+    --light-color: #f8f7ff;
+    --font-main: 'Montserrat', sans-serif;
+    --font-accent: 'Dancing Script', cursive;
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: var(--light-color);
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 10px;
+    min-height: 100vh;
+    padding: 20px 0;
+    /* Espacio superior e inferior */
+}
+
+/* Invitación Card */
+.invitation-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    margin: 40px auto;
+    max-width: 600px;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+/* Decoración floral con mejor responsividad */
+.floral-top-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 45%;
+    /* Porcentaje relativo al contenedor en lugar de píxeles fijos */
+    height: 45%;
+    /* Porcentaje relativo al contenedor */
+    background: url('img/flores_moradas_fondo_superior.png') no-repeat;
+    background-size: contain;
+    background-position: top left;
+    opacity: 0.9;
+    z-index: 0;
+    max-width: 380px;
+    /* Limitamos el tamaño máximo para pantallas grandes */
+    max-height: 380px;
+}
+
+.floral-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45%;
+    /* Porcentaje relativo al contenedor */
+    height: 45%;
+    /* Porcentaje relativo al contenedor */
+    background: url('img/flores_moradas_fondo_inferior.png') no-repeat;
+    background-size: contain;
+    background-position: bottom right;
+    opacity: 0.9;
+    z-index: 0;
+    max-width: 380px;
+    /* Limitamos el tamaño máximo para pantallas grandes */
+    max-height: 380px;
+}
+
+/* Media query específica para ajustar tamaño en celulares */
+@media (max-width: 600px) {
+
+    .floral-top-left,
+    .floral-bottom-right {
+        width: 55%;
+        /* Un poco más grande en porcentaje para móviles */
+        height: 55%;
+        min-width: 300px;
+        /* Establecemos un tamaño mínimo */
+        min-height: 300px;
+    }
+}
+
+/* Contenido de la invitación */
+.event-type {
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    color: var(--text-color);
+
+    margin-top: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.event-highlight {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+.event-honoree {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.honoree-name {
+    font-family: var(--font-accent);
+    font-size: 4rem;
+    color: var(--text-color);
+    margin: 10px 0 10px;
+    line-height: 1.2;
+    position: relative;
+    z-index: 1;
+}
+
+/* Fecha */
+.date-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 1;
+}
+
+.date-item {
+    margin: 0 15px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.date-circle {
+    background-color: var(--secondary-color);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 10px;
+}
+
+/* Detalles */
+.event-details {
+    margin: 20px 0;
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Añade esto a tu archivo style.css */
+
+/* Estilo para la sección del mapa */
+.map-section {
+    position: relative;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Estilo para el icono del mapa */
+.map-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 15px auto;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #f8f3f0;
+    width: fit-content;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.map-icon:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.map-icon i {
+    font-size: 32px;
+    color: #e5a4a4;
+    /* Color rosa que combina con una despedida de soltera */
+    margin-bottom: 5px;
+}
+
+.map-icon span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Estilo para el contenedor del mapa (oculto inicialmente) */
+.map-container {
+    display: none;
+    /* Inicialmente oculto */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 800px;
+    z-index: 1000;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Botón para cerrar el mapa */
+.map-close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background-color: white;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+}
+
+.map-close-btn i {
+    color: #333;
+}
+
+/* Fondo oscuro cuando el mapa está abierto */
+.map-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -45%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Organizers */
+.organizers {
+    flex: 1;
+    padding: 15px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.location {
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.address {
+    margin-bottom: 20px;
+}
+
+.organizers {
+    margin-top: 30px;
+    position: relative;
+    z-index: 1;
+    padding: 15px; /* Añade padding si no lo tienes ya */
+    border-radius: 8px; /* Opcional: para bordes redondeados */
+    background-color: rgba(246, 246, 246, 0.3); /* Fondo semitransparente (blanco) */
+    /* También puedes usar background-color: rgba(0, 0, 0, 0.2); para fondo negro transparente */
+    backdrop-filter: blur(3px); /* Opcional: añade un efecto de desenfoque para mejorar la legibilidad */
+}
+
+.organizers-cont {
+    position: relative;
+    z-index: 2;
+    color: var(--secundary-color); /* Tu color definido */
+    font-size: 0.8rem;
+}
+
+.organizer-names {
+    margin-bottom: 15px;
+}
+
+.email-icon {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+/* RSVP Section */
+.rsvp-section {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: var(--light-color);
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+}
+
+.rsvp-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.rsvp-options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rsvp-button {
+    padding: 10px 25px;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.rsvp-button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Popup de confirmación */
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 400px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.close-btn:hover {
+    color: var(--accent-color);
+}
+.confirmation a{
+    text-decoration: none;
+}
+
+.text-confirmation h2{
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.confirmation:hover i{
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+    color: var(--accent-color);
+}
+
+
+.confirmation:hover h2{
+    text-decoration: none;
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+    color: var(--accent-color);
+}
+
+#subr{
+    text-decoration: none;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.invitation-card {
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 600px) {
+    .invitation-card {
+        padding: 30px 15px;
+        margin: 20px 10px;
+    }
+
+    .honoree-name {
+        font-size: 3rem;
+    }
+
+    .floral-top-left,
+    .floral-bottom-right {
+        width: 100px;
+        height: 100px;
+    }
+
+    .date-container {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .date-item {
+        margin: 5px;
+    }
+
+    .rsvp-options {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .rsvp-button {
+        width: 80%;
+        margin-bottom: 10px;
+    }
+}
