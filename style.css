@@ -291,6 +291,33 @@ body {
     text-align: center;
 }
 
+ /* Estilos adicionales para el regalo sugerido */
+ .gift-suggestion {
+    margin-top: 15px;
+    padding: 10px;
+    border-top: 1px dashed rgba(106, 76, 147, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.gift-icon {
+    color: #6a4c93;
+    font-size: 1.5rem;
+}
+
+.gift-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.gift-highlight {
+    font-weight: 700;
+    color: #6a4c93;
+}
+
 .location {
     margin-bottom: 5px;
     text-transform: uppercase;
